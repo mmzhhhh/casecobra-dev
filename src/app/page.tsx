@@ -1,54 +1,59 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Image from "next/image";
-import { Check, Star } from "lucide-react";
+import { CircleCheckBig, Star, SmilePlus } from "lucide-react";
 import ProductDemo from "@/components/ProductDemo";
-export default function Home() {
+import { Icons } from "@/components/Icons";
+import { Reviews } from "@/components/Reviews";
+export default async function Home() {
   return (
     <div className="bg-slate-50">
+      {/* 产品介绍 */}
       <section>
         <MaxWidthWrapper className="pb-24 pt-10 lg:grid lg:grid-cols-3 sm:pb-32 lg:gap-x-0 xl:gap-x-8 lg:pt-24 xl:pt-32 lg:pb-52">
           <div className="col-span-2 px-6 lg:px-0 lg:pt-4">
             <div className="relative mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
-              {/* 图片 */}
-              <div className="absolute w-28 left-0 -top-20 hidden lg:block">
-                {/* 图片渐变效果 */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t via-slate-50/50 from-slate-50 h-28" />
-                <Image
-                  src="/snake-1.png"
-                  className="w-full"
-                  width={633}
-                  height={824}
-                  alt="snake-1"
-                />
-              </div>
               {/* 标题 */}
               <h1 className="relative w-fit tracking-tight text-balance mt-16 font-bold !leading-tight text-gray-900 text-5xl md:text-6xl lg:text-7xl">
                 Your Image on a{" "}
-                <span className="bg-green-600 text-white px-2">Custom</span>{" "}
+                <span className="bg-black text-white px-2 py-1 rounded-xl">
+                  Custom
+                </span>{" "}
                 Phone Case
               </h1>
               {/* 产品描述 */}
               <p className="mt-8 text-lg lg:pr-10 max-w-prose text-center lg:text-left text-balance md:text-wrap">
                 Capture your favorite memories with your own,{" "}
-                <span className="font-semibold">one-of-one</span> phone case.
-                CaseCobra allows you to protect your memories, not just your
-                phone case.
+                <span className="font-semibold">one-of-a-kind </span>
+                phone case.{" "}
+                <span className="underline underline-offset-4 text-xl font-bold">
+                  MonoCase
+                </span>{" "}
+                helps you protect your memories, not just your phone...
               </p>
 
               {/* 产品特点 */}
               <ul className="mt-8 space-y-2 text-left flex flex-col font-medium items-center sm:items-start">
                 <div className="space-y-2">
                   <li className="flex gap-1.5 items-center text-left">
-                    <Check className="text-green-600 h-5 w-5 shrink-0" />
-                    High-quality, durable material
+                    <CircleCheckBig className="text-black size-6 shrink-0" />
+                    <p>
+                      <span className="font-bold text-2xl">H</span>igh-quality,
+                      durable material
+                    </p>
                   </li>
                   <li className="flex gap-1.5 items-center text-left">
-                    <Check className="text-green-600 h-5 w-5 shrink-0" />5 year
-                    print guarantee
+                    <CircleCheckBig className="text-black size-6 shrink-0" />
+                    <p>
+                      <span className="font-bold text-2xl">5</span>-year print
+                      guarantee
+                    </p>
                   </li>
                   <li className="flex gap-1.5 items-center text-left">
-                    <Check className="text-green-600 h-5 w-5 shrink-0" />
-                    Modern iPhone models supported
+                    <CircleCheckBig className="text-black size-6 shrink-0" />
+                    <p>
+                      <span className="font-bold text-2xl">C</span>ompatible
+                      with modern iPhone models
+                    </p>
                   </li>
                 </div>
               </ul>
@@ -95,14 +100,16 @@ export default function Home() {
 
                 <div className="flex flex-col justify-between items-center sm:items-start">
                   <div className="flex gap-0.5">
-                    <Star className="text-green-600 fill-green-600 w-4 h-4" />
-                    <Star className="text-green-600 fill-green-600 w-4 h-4" />
-                    <Star className="text-green-600 fill-green-600 w-4 h-4" />
-                    <Star className="text-green-600 fill-green-600 w-4 h-4" />
-                    <Star className="text-green-600 fill-green-600 w-4 h-4" />
+                    <Star className="text-yellow-300 fill-yellow-300 w-5 h-5" />
+                    <Star className="text-yellow-300 fill-yellow-300 w-5 h-5" />
+                    <Star className="text-yellow-300 fill-yellow-300 w-5 h-5" />
+                    <Star className="text-yellow-300 fill-yellow-300 w-5 h-5" />
+                    <Star className="text-yellow-300 fill-yellow-300 w-5 h-5" />
                   </div>
+                  {/* 好评用户数量 */}
                   <p>
-                    <span className="font-semibold">1.250</span> happy customers
+                    <span className="font-semibold">1.250</span> trusted
+                    customers
                   </p>
                 </div>
               </div>
@@ -130,6 +137,96 @@ export default function Home() {
             </div>
           </div>
         </MaxWidthWrapper>
+      </section>
+
+      {/* 第二部分 */}
+      <section className="bg-slate-100 py-24">
+        <MaxWidthWrapper className="flex flex-col items-center gap-16">
+          <div className="flex flex-col lg:flex-row items-center gap-4 sm:gap-6">
+            <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
+              What out{" "}
+              <span className="relative px-2">
+                customers{" "}
+                <Icons.underline className="hidden sm:block pointer-events-none absolute inset-x-0 -bottom-6 text-black" />
+              </span>{" "}
+              say
+            </h2>
+          </div>
+
+          {/* 用户具体评价 */}
+          <div className="mx-auto grid max-w-2xl grid-cols-1 px-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 gap-y-16">
+            {/* 用户一 */}
+            <div className="flex flex-auto flex-col gap-4 lg:pr-8 xl:pr-20">
+              <div className="text-lg leading-8 text-center">
+                <p>
+                  &quot;The case feels durable and I even got a compliment on
+                  the design. Had the case for two and a half months now and the
+                  image is super
+                  <span className="p-1 mx-1 rounded-md bg-slate-800 text-white">
+                    clear
+                  </span>
+                  , on the case I had before, the image started fading into
+                  yellow-ish color after a couple weeks. Love it.&quot;
+                </p>
+              </div>
+              {/* 用户一的个人资料 */}
+              <div className="flex gap-4 mt-2">
+                <Image
+                  className="rounded-full size-12 object-cover"
+                  src="/users/user-1.png"
+                  width={300}
+                  height={300}
+                  alt="user-1"
+                />
+                <div className="flex flex-col">
+                  <p className="font-semibold">Jonathan</p>
+                  <div className="flex gap-1.5 items-center text-zinc-600">
+                    <SmilePlus className="size-5 stroke-[3px] text-black" />
+                    <p className="text-sm">Verified Purchase</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 用户二 */}
+            <div className="flex flex-auto flex-col gap-4 lg:pr-8 xl:pr-20">
+              <div className="text-lg leading-8 text-center">
+                <p>
+                  &quot;I usually keep my phone together with my keys in my
+                  pocket and that led to some pretty heavy scratchmarks on all
+                  of my last phone cases. This one, besides a barely noticeable
+                  scratch on the corner,looks brand
+                  <span className="p-1 mx-1 rounded-md bg-slate-800 text-white">
+                    new
+                  </span>
+                  after about half a year . I dig it.&quot;
+                </p>
+              </div>
+              {/* 用户二的个人资料 */}
+              <div className="flex gap-4 mt-2">
+                <Image
+                  className="rounded-full size-12 object-cover"
+                  src="/users/user-2.png"
+                  width={300}
+                  height={300}
+                  alt="user-2"
+                />
+                <div className="flex flex-col">
+                  <p className="font-semibold">Emmy Rossum</p>
+                  <div className="flex gap-1.5 items-center text-zinc-600">
+                    <SmilePlus className="size-5 stroke-[3px] text-black" />
+                    <p className="text-sm">Verified Purchase</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </MaxWidthWrapper>
+
+        {/* 产品轮播图 */}
+        <div className="pt-16">
+          <Reviews/>
+        </div>
       </section>
     </div>
   );
