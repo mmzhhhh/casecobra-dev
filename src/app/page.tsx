@@ -4,6 +4,8 @@ import { CircleCheckBig, Star, SmilePlus } from "lucide-react";
 import ProductDemo from "@/components/ProductDemo";
 import { Icons } from "@/components/Icons";
 import { Reviews } from "@/components/Reviews";
+import { buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
 export default async function Home() {
   return (
     <div className="bg-slate-50">
@@ -225,8 +227,82 @@ export default async function Home() {
 
         {/* 产品轮播图 */}
         <div className="pt-16">
-          <Reviews/>
+          <Reviews />
         </div>
+      </section>
+
+      {/* 第三部分 */}
+      <section>
+        <MaxWidthWrapper className="py-24">
+          <div className=" mb-12 px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl sm:text-center">
+              <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
+                Upload your photo and get{" "}
+                <span className="bg-black text-white px-2 py-1 rounded-xl">
+                  your onw case
+                </span>{" "}
+                now
+              </h2>
+            </div>
+          </div>
+
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="relative flex flex-col items-center md:grid grid-cols-2 gap-40 place-items-center">
+              {/* 箭头居中 移动屏幕状态下旋转90度 */}
+              <Image
+                src="/arrow.png"
+                width={126}
+                height={31}
+                className="absolute top-[25rem] md:top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 left-[55%] rotate-90 md:rotate-0
+                "
+                alt="arrow"
+              />
+
+              <div className="relative h-80 md:h-full w-full max-w-sm md:justify-self-end rounded-xl bg-gray-900/5 ring-inset ring-gray-900/10 lg:rounded-2xl">
+                <Image
+                  src="/horse.jpg"
+                  width={853}
+                  height={1280}
+                  className="bg-white rounded-md object-cover shadow-2xl ring-1 ring-gray-900/10 h-full w-full"
+                  alt="horse_phone"
+                />
+              </div>
+
+              <ProductDemo imgSrc="/horse_phone.jpg" className="w-60" />
+            </div>
+          </div>
+
+          <ul className="mx-auto mt-12 max-w-prose sm:text-lg space-y-2 w-fit">
+            <li className="w-fit">
+              <CircleCheckBig className="inline size-6 mr-1.5" />
+              High-quality silicone material
+            </li>
+            <li className="w-fit">
+              <CircleCheckBig className="inline size-6 mr-1.5" />
+              Scratch- and fingerprint resistant coating
+            </li>
+            <li className="w-fit">
+              <CircleCheckBig className="inline size-6 mr-1.5" />
+              Wireless charging compatible
+            </li>
+            <li className="w-fit">
+              <CircleCheckBig className="inline size-6 mr-1.5" />5 year print
+              warranty
+            </li>
+
+            <div className="flex justify-center">
+              <Link
+                className={buttonVariants({
+                  size: "lg",
+                  className:'mx-auto mt-8'
+                })}
+                href="/configure/upload"
+              >
+                Create your case now
+              </Link>
+            </div>
+          </ul>
+        </MaxWidthWrapper>
       </section>
     </div>
   );

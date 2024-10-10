@@ -130,11 +130,13 @@ function ReviewGrid() {
             reviews={[...column1, ...column3.flat(), ...column2]}
             reviewClassName={(reviewIndex) =>
               cn({
+                
                 "md:hidden": reviewIndex >= column1.length + column3[0].length,
                 "lg:hidden": reviewIndex >= column1.length,
               })
             }
             msPerPixel={7}
+            className=""
           />
           <ReviewColumn
             className="hidden md:block"
@@ -169,7 +171,6 @@ export function Reviews() {
         className="absolute select-none hidden xl:block -left-32 top-1/3"
         alt="what-people-are-buying"
       />
-
       <ReviewGrid />
     </MaxWidthWrapper>
   );
