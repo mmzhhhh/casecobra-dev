@@ -81,7 +81,7 @@ const Page = () => {
               ) : isUploading || isPending ? (
                 <Loader2 className="size-10 animate-spin text-zinc-500 mb-2" />
               ) : (
-                <Image className="size-10 text-zinc-500 mb-2" />
+                <Image className="size-10 text-zinc-500 mb-2"/>
               )}
               <div className="flex flex-col justify-center mb-2 text-sm text-zinc-700">
                 {isUploading ? (
